@@ -1,13 +1,17 @@
 extends layout
 
 block content
-  h1 Pick your Side
-  p #FreeToChoose&nbsp;
-    span(class='voteOne') 0
-  p #BornThisWay&nbsp;
-    span(class='voteTwo') 0
-  img(src="", alt="", id="outrage-img")
-  h2(id="option-one")
-  p(id="option-one-votes")
-  h2(id="option-two")
-  p(id="option-two-votes")
+  div(class="container")
+    div(class='row')
+      div(class='col-md-4')
+        div(id="option-one")
+        div(class="votes", id="option-one-votes")
+        div(class="textprompt", id="text1") Text 001 to (914) 819 5091
+      div(class="col-md-4")
+        div(id="prompt") Is this a...?
+        img(id="outrage-img", src="")
+        div(id="verticalline")
+      div(class="col-md-4")
+        div(id="option-two")
+        div(class="votes", id="option-two-votes")
+        div(class="textprompt", id="text2") Text 002 to (914) 819 5091

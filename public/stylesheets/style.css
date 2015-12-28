@@ -1,8 +1,81 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  width:100%;
+  background:#ed454c;
+  font-style: italic;
+  font: 48px "Anton", Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1px;
+  line-height: 200%;
+  color: white;
+  text-shadow: -12px 12px 0px rgba(0, 0, 0, .2);
 }
 
-a {
-  color: #00B7FF;
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#prompt {
+   font-size: 60px;
+   padding-bottom:40px;
+}
+
+/*#verticalline {
+    border-left: 10px solid rgba(0, 0, 0, .1);
+    float:left;
+    height:100%;
+    margin: 0 auto;
+}*/
+
+#outrage-img {
+  width:300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#option-one, #option-two {
+  padding-top:220px;
+}
+
+.votes {
+  font: 40px "Anton", Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1px;
+  line-height: 200%;
+  color: white;
+  text-shadow: none;
+  padding-top:;
+  background-color: rgba(0,0,0,.2);
+}
+
+.textprompt {
+  font-size:32px;
+  letter-spacing: 1px;
+  line-height: 100%;
+  color: white;
+  text-shadow: none;
+  padding-top:200px;
+}
+
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height:1200px;
+/*  border: 1px solid white;*/
+  text-align:center;
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
