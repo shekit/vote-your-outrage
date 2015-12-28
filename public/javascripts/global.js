@@ -36,13 +36,6 @@ $(document).ready(function(){
 		updateVotes(idOfSlide);
 	})
 
-	$(".ass").on("click", function(event){
-		event.preventDefault();
-		console.log(outrages)
-		console.log(outrageCount)
-		console.log("VOTE 1: "+outrages[outrageCount]["option_one_votes"])
-		console.log("VOTE 2: "+outrages[outrageCount]["option_two_votes"])
-	})
 
 
 	function runOutrageLoop(){

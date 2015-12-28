@@ -3,15 +3,15 @@ var router = express.Router();
 var socket = require('socket.io');
 var io = socket();
 
-//fill this in -- list of outrages and their details
+//FILL THIS IN -- list of outrages and their details
 var outrages = [
 		{
-			"id":0,  // must be unique and ideally incremented
-			"img":"../public/images/outrage1.jpg",
-			"option_one":"#warOnChristmas",
-			"option_two":"#jstACup",
-			"option_one_votes":0,
-			"option_two_votes":0
+			"id":0,  // must be unique and increment correctly
+			"img":"../public/images/outrage1.jpg",   // replace outrage1.jpg etc with image name. place image in public/images .. do not touch rest of the path
+			"option_one":"#warOnChristmas",   //first hashtag
+			"option_two":"#jstACup",     // second hashtag
+			"option_one_votes":0,   //start this off with zero
+			"option_two_votes":0    // start this off with zero
 	    },
 	    {
 			"id":1,
@@ -26,6 +26,22 @@ var outrages = [
 			"img":"../public/images/outrage3.jpg",
 			"option_one":"#freetochoose",
 			"option_two":"#bornthisway",
+			"option_one_votes":0,
+			"option_two_votes":0
+	    },
+	    {
+			"id":3,
+			"img":"../public/images/outrage4.jpg",
+			"option_one":"#sideone",
+			"option_two":"#sidetwo",
+			"option_one_votes":0,
+			"option_two_votes":0
+	    },
+	    {
+			"id":4,
+			"img":"../public/images/outrage5.jpg",
+			"option_one":"#sideone",
+			"option_two":"#sidetwo",
 			"option_one_votes":0,
 			"option_two_votes":0
 	    }
@@ -73,7 +89,7 @@ router.post('/message', function(req, res, next){
 	}
 
 	//send updated data to client
-	io.emit("updated_data",outrages)
+	io.emit("updated_data",{"outrages":outrages,"id":currently_displayed_outrage_id})
 
 	console.log("Phone: " + phone);
 	console.log("Message: " + msg);
@@ -98,6 +114,7 @@ function incrementOutrage(option){
 	}
 }
 
+//routes to test code
 router.get('/one', function(req, res,next){
 	incrementOutrage("option_one_votes")
 	console.log(outrages);
