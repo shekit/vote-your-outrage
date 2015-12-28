@@ -17,8 +17,9 @@ $(document).ready(function(){
 	var option_one_votes = $("#option-one-votes");   // vote counter for option one
 	var option_two_votes = $("#option-two-votes");   // vote counter for option two
 
-	var slideInterval = 5000;
-	var slideCounter = 0;
+	var outrageTimerDuration = 5000;
+	var outrageCount = 0;
+	var outrageLoopRunning = false;
 
 	// array containing details of outrages - filled by server
 	var outrages = []
@@ -32,9 +33,10 @@ $(document).ready(function(){
 
 		//save copy of list in client
 		outrages = msg;
+		console.log(outrages)
 
 		//start the outrage slideshow
-
+		//runOutrageLoop();
 	})
 
 	socket.on("one", function(msg){
@@ -51,9 +53,31 @@ $(document).ready(function(){
 
 
 
-	function runSlides(){
-		slideTimer = setInterval(function(){
-			console.log("hello")
-		}, slideInterval)
+	function runOutrageLoop(){
+		console.log("START LOOP")
+		outrageInterval = setInterval(function(){
+			outrageLoopRunning = true;
+
+			//set the slide values
+			img.attr("src",outrages[outrageCount].img);
+			option_one.html(outrages[outrageCount].option_one);
+			option_two.html(outrages[outrageCount].option_two);
+			option_one_votes.html(outrages[outrageCount].option_one_votes);
+			option_two_votes.html(outrages[outrageCount].option_two_votes);
+
+			if(outrageCount >= outrages.length-1){
+				outrageCount = 0;
+				return;
+			}
+
+			outrageCount++;
+		}, outrageTimerDuration)
+	}
+
+	function stopLoopInterval(){
+		console.log("Stop regular loop");
+		clearInterval(outrageInterval);
+		outrageLoopRunning = false;
+		outrageCount = 0;
 	}
 })
