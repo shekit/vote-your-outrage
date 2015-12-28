@@ -8,7 +8,7 @@ $(document).ready(function(){
 	var option_one_votes = $("#option-one-votes");   // vote counter for option one
 	var option_two_votes = $("#option-two-votes");   // vote counter for option two
 
-	var outrageTimerDuration = 30000;
+	var outrageTimerDuration = 15000;
 	var outrageCount = 0;
 	var outrageLoopRunning = false;
 
